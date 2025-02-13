@@ -40,17 +40,17 @@
           <div class="p-3 text-white text-center">
             <h2 class="mb-4">Serrar</h2>
             <div class="row align-items-center">
-                <div class="col-4 p-1 text-end mt-2">
-                    <!-- User Image -->
-                    <img
-                    src="person-circle.svg"
-                    alt="User Profile"
-                    class="rounded-circle"
-                    style="width:2.5em; height:2.5em; object-fit:cover;"
-                    />
-                </div>
-                <!-- User Name -->
-                <h5 class="mt-2 col-8 text-start">John Doe</h5>
+              <div class="col-4 p-1 text-end mt-2">
+                <!-- User Image -->
+                <img
+                  src="person-circle.svg"
+                  alt="User Profile"
+                  class="rounded-circle"
+                  style="width:2.5em; height:2.5em; object-fit:cover;"
+                />
+              </div>
+              <!-- User Name -->
+              <h5 class="mt-2 col-8 text-start">John Doe</h5>
             </div>
           </div>
           <!-- Sidebar Navigation (all items in one UL) -->
@@ -147,28 +147,12 @@
             </div>
           </div>
 
-          <!-- Chart Section (Placeholder) -->
+          <!-- Chart Section using Chart.js -->
           <div class="row mt-3">
             <div class="col-12">
               <div class="bg-light p-3 rounded">
-                <h5>Chart Placeholder</h5>
-                <div
-                  class="d-flex justify-content-around align-items-end"
-                  style="height: 150px;"
-                >
-                  <div class="bg-success" style="width: 20px; height: 50px;"></div>
-                  <div class="bg-success" style="width: 20px; height: 80px;"></div>
-                  <div class="bg-success" style="width: 20px; height: 100px;"></div>
-                  <div class="bg-success" style="width: 20px; height: 70px;"></div>
-                  <div class="bg-success" style="width: 20px; height: 120px;"></div>
-                  <div class="bg-success" style="width: 20px; height: 40px;"></div>
-                  <div class="bg-success" style="width: 20px; height: 90px;"></div>
-                  <div class="bg-success" style="width: 20px; height: 60px;"></div>
-                  <div class="bg-success" style="width: 20px; height: 110px;"></div>
-                  <div class="bg-success" style="width: 20px; height: 75px;"></div>
-                  <div class="bg-success" style="width: 20px; height: 100px;"></div>
-                  <div class="bg-success" style="width: 20px; height: 60px;"></div>
-                </div>
+                <!-- Canvas for Chart.js -->
+                <canvas id="myChart" width="100%" height="30vh"></canvas>
               </div>
             </div>
           </div>
@@ -222,6 +206,12 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- Chart.js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"
+      crossorigin="anonymous"
+    ></script>
+    
     <!-- JavaScript to Generate Tables Dynamically with Escaped Data -->
     <script>
       // Sample trip data
@@ -280,6 +270,9 @@
       // Function to create a table with escaped data inside a container element
       function createTable(tripsData, containerId) {
         const container = document.getElementById(containerId);
+        // Clear any previous table if re-rendering
+        container.innerHTML = '';
+
         // Create table element
         const table = document.createElement('table');
         table.className = 'table table-striped align-middle';
@@ -342,6 +335,39 @@
       createTable(trips.filter(t => t.status.toLowerCase() === 'running'), 'running');
       createTable(trips.filter(t => t.status.toLowerCase() === 'completed'), 'completed');
       createTable(trips.filter(t => t.status.toLowerCase() === 'cancelled'), 'cancelled');
+
+      // Chart.js Example
+      // Here, we’ll create a simple bar chart with arbitrary data.
+      // Replace labels/data with your actual chart data if needed.
+      const ctx = document.getElementById('myChart').getContext('2d');
+
+      // Example dataset (12 bars for demonstration)
+      const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: [
+            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+          ],
+          datasets: [
+            {
+              label: 'Number of Shipments',
+              data: [50, 80, 100, 70, 120, 40, 90, 60, 110, 75, 100, 60],
+              backgroundColor: 'rgba(75, 192, 192, 0.7)',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
     </script>
   </body>
 </html>
