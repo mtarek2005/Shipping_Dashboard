@@ -61,19 +61,19 @@
                 aria-expanded="true"
                 aria-controls="homeSubmenu"
               >
-                <span>Home</span>
+                <span><i class="bi bi-house"></i> Home</span>
                 <i class="bi bi-chevron-down"></i>
               </a>
               <div class="collapse show" id="homeSubmenu">
                 <ul class="nav flex-column ms-3">
                   <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Dashboard</a>
+                    <a class="nav-link text-white" href="#"><i class="bi bi-bar-chart"></i> Dashboard</a>
                   </li>
                 </ul>
               </div>
             </li>
             <li class="nav-item mb-2">
-              <a class="nav-link text-white" href="#">All Trips</a>
+              <a class="nav-link text-white" href="#"><i class="bi bi-truck"></i> All Trips</a>
             </li>
             <li class="nav-item mb-2">
               <a
@@ -84,25 +84,25 @@
                 aria-expanded="false"
                 aria-controls="reportsSubmenu"
               >
-                <span>Reports</span>
+                <span><i class="bi bi-file-earmark-bar-graph"></i> Reports</span>
                 <i class="bi bi-chevron-down"></i>
               </a>
               <div class="collapse" id="reportsSubmenu">
                 <ul class="nav flex-column ms-3">
                   <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Daily</a>
+                    <a class="nav-link text-white" href="#"><i class="bi bi-calendar-event"></i> Daily</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Weekly</a>
+                    <a class="nav-link text-white" href="#"><i class="bi bi-calendar-week"></i> Weekly</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Monthly</a>
+                    <a class="nav-link text-white" href="#"><i class="bi bi-calendar-month"></i> Monthly</a>
                   </li>
                 </ul>
               </div>
             </li>
             <li class="nav-item mb-2">
-              <a class="nav-link text-white" href="#">Help</a>
+              <a class="nav-link text-white" href="#"><i class="bi bi-question-circle"></i> Help</a>
             </li>
             <li class="nav-item mb-2">
               <a
@@ -113,22 +113,22 @@
                 aria-expanded="false"
                 aria-controls="settingSubmenu"
               >
-                <span>Settings</span>
+                <span><i class="bi bi-gear"></i> Settings</span>
                 <i class="bi bi-chevron-down"></i>
               </a>
               <div class="collapse" id="settingSubmenu">
                 <ul class="nav flex-column ms-3">
                   <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Profile</a>
+                    <a class="nav-link text-white" href="#"><i class="bi bi-person-gear"></i> Profile</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Preferences</a>
+                    <a class="nav-link text-white" href="#"><i class="bi bi-sliders"></i> Preferences</a>
                   </li>
                 </ul>
               </div>
             </li>
             <li class="nav-item mt-auto mb-2">
-              <a class="nav-link text-white" href="#">Log Out</a>
+              <a class="nav-link text-white" href="#"><i class="bi bi-box-arrow-right"></i> Log Out</a>
             </li>
           </ul>
         </nav>
@@ -309,7 +309,7 @@
           const tdAction = document.createElement('td');
           const btn = document.createElement('button');
           btn.className = 'btn btn-primary btn-sm';
-          btn.textContent = 'View Details';
+          btn.innerHTML = '<i class="bi bi-info-circle-fill"></i> View Details';
           tdAction.appendChild(btn);
           tr.appendChild(tdAction);
 
